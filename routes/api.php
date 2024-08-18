@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\App\ApartmentController;
 use App\Http\Controllers\Api\App\ApartmentImageController;
 use App\Http\Controllers\Api\App\CategoryController;
+use App\Http\Controllers\Api\App\PaymentPlansController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\AuthController;
@@ -102,5 +103,11 @@ Route::middleware(['ApiRequest' , 'LangCheck'])->group(function(){
         Route::post('featureds' , 'store');
         Route::put('featureds/{id}' , 'update');
         Route::delete('featured/{id}' , 'delete');
+    });
+    Route::controller(PaymentPlansController::class)->group(function(){
+        Route::post('paymentPlan' , 'createPaymentPlan');
+        // Route::get('paymentPlans' , 'allPaymentPlan');
+        // Route::put('paymentPlan/{id}' , 'modifyPaymentPlan');
+        // Route::delete('paymentPlan/{id}' , 'deletePaymentPlan');
     });
 });
