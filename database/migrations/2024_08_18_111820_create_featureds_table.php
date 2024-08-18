@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('featureds', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('apartment_id')->unsigned();
+            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
             $table->timestamps();
         });
     }

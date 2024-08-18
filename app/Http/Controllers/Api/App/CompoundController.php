@@ -52,7 +52,21 @@ class CompoundController extends BaseController
     }
     public function store(Request $request){
         $compound = Compound::create($request->all());
-        return $this->sendResponse($compound );
+        $data = [
+            'name' => $compound['name_'.app()->getLocale()],
+            'image' => $compound->image,
+            'description' => $compound['description_'.app()->getLocale()],
+            'start_price' => $compound->start_price,
+            'max_price' => $compound->max_price,
+            'area' => $compound['area_'.app()->getLocale()],
+            'user_id' => $compound->user_id,
+            'location' => $compound['location_'.app()->getLocale()],
+            'location_link' => $compound->location_link,
+            'user' => $compound->user,
+            'images' => $compound->images,
+
+        ];
+        return $this->sendResponse($data );
     }
     public function update(Request $request , $id){
         $compound = Compound::find($id);

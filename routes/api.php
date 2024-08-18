@@ -35,9 +35,8 @@ Route::middleware(['ApiRequest' , 'LangCheck'])->group(function(){
         Route::post('register','register')->middleware('unAuth');
         Route::post('login','login')->middleware('unAuth');
         Route::post('update-me','updateMe')->middleware('auth:sanctum');
-        Route::post('change-password','changePassword')->middleware('auth:sanctum');
+        Route::put('change-password','changePassword')->middleware('auth:sanctum');
         Route::post('logout','logout')->middleware('auth:sanctum');
-        Route::post('forgot-password','forgotPassword')->middleware('unAuth');
 
     });
     Route::controller(ParentCatController::class)->group(function(){

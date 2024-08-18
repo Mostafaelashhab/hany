@@ -96,7 +96,6 @@ class ApartmentController extends BaseController
             'category_id' => 'required|exists:categories,id',
             'compound_id' => 'required|exists:compounds,id',
             'user_id' => 'required|exists:users,id',
-            'parentcat_id'=> 'required|exists:parent_cats,id',
             'image' => 'required',
             'area' => 'required',
             'latitude' => 'required',

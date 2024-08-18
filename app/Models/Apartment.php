@@ -22,6 +22,7 @@ class Apartment extends Model
         'delivery_in',
         'compound_id',
         'category_id',
+
         'user_id',
         'bedrooms',
         'living_rooms',
@@ -66,5 +67,8 @@ class Apartment extends Model
         return $this->hasMany(ApartmentStatus::class, 'apartment_id');
     }
 
+    public function featured(){
+        return $this->hasMany(Featured::class, 'apartment_id');
+    }
 
 }

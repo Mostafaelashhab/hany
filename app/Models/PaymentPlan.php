@@ -9,4 +9,6 @@ class PaymentPlan extends Model
 {
     use HasFactory;
 
+
+
 }
