@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Api\App;
 
+use App\Http\Controllers\Api\BaseController;
 use App\Http\Controllers\Controller;
 use App\Models\PaymentPlan;
 use Exception;
 use Illuminate\Http\Request;
 
-class PaymentPlansController extends Controller
+class PaymentPlansController extends BaseController
 {
     public function createPaymentPlan(Request $request)
     {
@@ -34,10 +35,10 @@ class PaymentPlansController extends Controller
             //     'annual' => $validatedData['annual']
             // ]);
 
-            return response()->json([
-                'data' => 'payment Plan Created Successfully!',
-                'status' => "201"
-            ]);
+            // return response()->json([
+            //     'data' => 'payment Plan Created Successfully!',
+            //     'status' => "201"
+            // ]);
 
         } catch (Exception $e) {
             return response()->json([
