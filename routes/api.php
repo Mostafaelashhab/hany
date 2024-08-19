@@ -104,4 +104,5 @@ Route::middleware(['ApiRequest' , 'LangCheck'])->group(function(){
         Route::put('featureds/{id}' , 'update');
         Route::delete('featured/{id}' , 'delete');
     });
+
 });
