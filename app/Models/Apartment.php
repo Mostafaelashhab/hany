@@ -22,6 +22,7 @@ class Apartment extends Model
         'delivery_in',
         'compound_id',
         'category_id',
+
         'user_id',
         'bedrooms',
         'living_rooms',

@@ -42,8 +42,6 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('compound_id')->unsigned();
             $table->foreign('compound_id')->references('id')->on('compounds')->onDelete('cascade');
-            $table->bigInteger('parentcat_id')->unsigned();
-            $table->foreign('parentcat_id')->references('id')->on('parent_cats')->onDelete('cascade');
             $table->bigInteger('type_id')->unsigned();
             $table->foreign('type_id')->references('id')->on('apartment_types')->onDelete('cascade');
             $table->bigInteger('status_id')->unsigned();

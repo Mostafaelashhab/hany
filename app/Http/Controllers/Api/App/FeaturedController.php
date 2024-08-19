@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\BaseController;
 use App\Http\Controllers\Controller;
 use App\Models\Featured;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FeaturedController extends BaseController
 {

@@ -22,6 +22,9 @@ class BannerController extends BaseController
         $vaild = Validator::make($request->all(),[
             'image' => 'required|image|mimes:png,jpg,jpeg,gif,svg',
         ]);
+        if($vaild->fails()){
+            return $this->sendResponse($vaild->errors()->all(),400);
+        }
         $banner = Banner::create($request->all());
         return $this->sendResponse($banner);
     }
