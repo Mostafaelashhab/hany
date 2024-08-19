@@ -106,8 +106,8 @@ Route::middleware(['ApiRequest' , 'LangCheck'])->group(function(){
     });
     Route::controller(PaymentPlansController::class)->group(function(){
         Route::post('paymentPlan' , 'createPaymentPlan');
-        // Route::get('paymentPlans' , 'allPaymentPlan');
-        // Route::put('paymentPlan/{id}' , 'modifyPaymentPlan');
+        Route::get('paymentPlans' , 'allPaymentPlan');
+        Route::put('paymentPlan/{id}' , 'modifyPaymentPlan');
         // Route::delete('paymentPlan/{id}' , 'deletePaymentPlan');
     });
 });
