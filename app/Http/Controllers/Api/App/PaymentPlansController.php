@@ -14,9 +14,9 @@ class PaymentPlansController extends BaseController
         try {
 
             $vaild = validator($request->all(), [
-                'advance' => 'required|float',
-                'monthly' => 'required|float',
-                'annual' => 'required|float'
+                'advance' => 'required',
+                'monthly' => 'required',
+                'annual' => 'required'
             ]);
             if ($vaild->fails()) {
                 return $this->sendResponse($vaild->errors()->all(), 400);
@@ -36,12 +36,12 @@ class PaymentPlansController extends BaseController
             $plan = PaymentPlan::select('advance', 'monthly', 'annual')
                 ->get();
 
-            return $this->sendResponse($plan, "200");
+            return $this->sendResponse($plan, 200);
 
         } catch (Exception $e) {
             // Log the error for further analysis
             Log::error('Error fetching payment plans: ' . $e->getMessage());
-            return $this->sendResponse($e->getMessage(), "500");
+            return $this->sendResponse($e->getMessage(), 500);
         }
     }
     public function modifyPaymentPlan(Request $request, $id)
@@ -55,18 +55,18 @@ class PaymentPlansController extends BaseController
             $plan = PaymentPlan::findOrFail($id);
             $plan->update($validatedData);
 
-            return $this->sendResponse($plan, "200");
+            return $this->sendResponse($plan, 200);
 
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return $this->sendResponse('Payment plan not found.', "404");
+            return $this->sendResponse('Payment plan not found.', 404);
 
         } catch (\Illuminate\Validation\ValidationException $e) {
             // If validation fails
-            return $this->sendResponse('Validation error.', "422");
+            return $this->sendResponse('Validation error.', 400);
 
         } catch (Exception $e) {
             Log::error('Error updating payment plan: ' . $e->getMessage());
-            return $this->sendResponse('Unable to update payment plan' . $e->getMessage(), "500");       }
+            return $this->sendResponse('Unable to update payment plan' . $e->getMessage(), 500);       }
     }
     public function deletePaymentPlan(Request $request ,$id)
     {

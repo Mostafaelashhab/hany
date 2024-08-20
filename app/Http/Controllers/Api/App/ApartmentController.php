@@ -101,6 +101,7 @@ class ApartmentController extends BaseController
             'latitude' => 'required',
             'longitude' => 'required',
             'zone'=> 'required',
+            'type_id'=>'required|exists:types,id',
 
         ]);
         if($vaild->fails()){

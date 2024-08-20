@@ -14,7 +14,7 @@ class ApartmentType extends Model
         'name_en',
         'name_ar',
     ];
-    public function apartment(){
-        return $this->belongsTo(Apartment::class);
+    public function Apartments(){
+        return $this->hasMany(Apartment::class , 'type_id');
     }
 }

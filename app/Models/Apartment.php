@@ -61,14 +61,14 @@ class Apartment extends Model
         return $this->hasMany(OutdoorFacilities::class, 'apartment_id');
     }
     public function ApartmentType(){
-        return $this->hasMany(ApartmentType::class, 'apartment_id');
+        return $this->belongsTo(ApartmentType::class, 'type_id');
     }
     public function ApartmentStatus(){
         return $this->hasMany(ApartmentStatus::class, 'apartment_id');
     }
 
-    public function featured(){
-        return $this->hasMany(Featured::class, 'apartment_id');
+    public function Featureds(){
+        return $this->hasMany(Apartment::class, 'apartment_id');
     }
 
 }

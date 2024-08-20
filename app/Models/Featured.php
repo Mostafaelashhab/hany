@@ -9,7 +9,6 @@ class Featured extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id',
         'apartment_id',
     ];
     public function apartment(){

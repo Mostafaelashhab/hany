@@ -104,6 +104,7 @@ Route::middleware(['ApiRequest' , 'LangCheck'])->group(function(){
         Route::put('featureds/{id}' , 'update');
         Route::delete('featured/{id}' , 'delete');
     });
+
     Route::controller(PaymentPlansController::class)->group(function(){
         Route::post('paymentPlan' , 'createPaymentPlan');
         Route::get('paymentPlans' , 'allPaymentPlan');
